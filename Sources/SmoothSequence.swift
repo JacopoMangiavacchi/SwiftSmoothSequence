@@ -7,9 +7,9 @@
 //
 import Foundation
 
-struct SequenceSmoother<Element> {
-    typealias elementAddFunc = (Element, Element) -> Element
-    typealias elementDivideFunc = (Element, Int) -> Element
+public struct SequenceSmoother<Element> {
+    public typealias elementAddFunc = (Element, Element) -> Element
+    public typealias elementDivideFunc = (Element, Int) -> Element
     
     fileprivate var cache = [Element]()
     fileprivate var maxCacheSize = 5
@@ -19,7 +19,7 @@ struct SequenceSmoother<Element> {
     fileprivate var divideFunc: elementDivideFunc!
     
     
-    init(cacheSize: Int = 5, emptyElement:Element, addFunc: @escaping elementAddFunc, divideFunc: @escaping elementDivideFunc) {
+    public init(cacheSize: Int = 5, emptyElement:Element, addFunc: @escaping elementAddFunc, divideFunc: @escaping elementDivideFunc) {
         self.maxCacheSize = cacheSize
         self.currentPos = 0
         self.emptyElement = emptyElement
@@ -27,12 +27,12 @@ struct SequenceSmoother<Element> {
         self.divideFunc = divideFunc
     }
     
-    mutating func resetCache() {
+    public mutating func resetCache() {
         currentPos = 0
         cache = [Element]()
     }
     
-    mutating func smooth(_ value: Element) -> Element {
+    public mutating func smooth(_ value: Element) -> Element {
         if cache.count < maxCacheSize {
             cache.append(value)
         }
