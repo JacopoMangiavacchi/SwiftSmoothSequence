@@ -1,5 +1,8 @@
-# SwiftSmoothSequence
-Swift Struct implementing Smooth Sequence of generic values
+# EWMA / SwiftSmoothSequence
+Swift Struct implementing Smooth Sequence of generic values in two different method
+
+1) struct SequenceSmoother<Element> implement classic circular buffer technique
+2) struct EWMA<Element> implement Exponentially Weighted Moving Average
 
 Useful for smoothing sequences like accelerometer data or image detection position
 
@@ -11,7 +14,7 @@ In order to use it in your Swift project please include the following line in yo
 
 	.Package(url: "https://github.com/JacopoMangiavacchi/SwiftSmoothSequence", majorVersion: 0)
 
-# Example Usage
+# SequenceSmoother Example Usage
 
 Here is some sample code to smooth a sequence of CGPoint
 
